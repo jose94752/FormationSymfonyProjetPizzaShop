@@ -25,21 +25,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private $phone;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $ville;
-
-    #[ORM\Column(type: 'integer')]
-    private $cp;
+    private $city;
 
     #[ORM\Column(type: 'string', length: 255)]
+    private $zipCode;
+
+    #[ORM\Column(type: 'text')]
     private $numAndStreet;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $complement;
 
     public function getId(): ?int
@@ -112,18 +109,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     public function getPhone(): ?string
     {
         return $this->phone;
@@ -136,26 +121,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getVille(): ?string
+    public function getCity(): ?string
     {
-        return $this->ville;
+        return $this->city;
     }
 
-    public function setVille(string $ville): self
+    public function setCity(string $city): self
     {
-        $this->ville = $ville;
+        $this->city = $city;
 
         return $this;
     }
 
-    public function getCp(): ?int
+    public function getZipCode(): ?string
     {
-        return $this->cp;
+        return $this->zipCode;
     }
 
-    public function setCp(int $cp): self
+    public function setZipCode(string $zipCode): self
     {
-        $this->cp = $cp;
+        $this->zipCode = $zipCode;
 
         return $this;
     }
