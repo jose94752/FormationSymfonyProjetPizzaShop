@@ -3,7 +3,7 @@
 # une base de données remplie avec vos données :)
 
 # Voici les fixtures concernant les adresses
-#App\Entity\Address:
+# App\Entity\Address:
 #  address_1:
 #   country: France
 #   city: Paris
@@ -18,48 +18,48 @@
 # Voici la liste des utilisateurs de l'application
 App\Entity\User:
   user:
-    firstname: John
-    lastname: Doe
+    firstname: "John"
+    lastname: "Doe"
     email: "user@pizza-shop.com"
     roles: ["ROLE_USER"]
     #address: "@address_1"
     # password: user
     password: \$2y\$13\$ahyDEIQ5rxD4APepoy59Ee4C6shhshhvBw7r/DE4/ipiGFbIhfAIm
     phone: "01 01 01 99 99"
-    city: Paris
+    city: "Paris"
     zipCode: 75002
-    numAndStreet: 13 rue lafayette
+    numAndStreet: "13 rue lafayette"
     complement: ""
   admin:
-    firstname: Admin
-    lastname: Admin
+    firstname: "Admin"
+    lastname: "Admin"
     email: "admin@pizza-shop.com"
     roles: ["ROLE_ADMIN"]
     #address: "@address_*"
     # password: admin
     password: \$2y\$13\$AySyX3lvRrxJsvInORUideyy6QmFbyPxzp1vmBaOXVJP/e6d3TeOK
-    phone: <fr_FR:phoneNumber()>
-    city: <fr_FR:city()>
-    zipCode: <fr_FR:postcode()>
-    numAndStreet: <fr_FR:streetAddress()>
+    phone: "<fr_FR:phoneNumber()>"
+    city: "<fr_FR:city()>"
+    zipCode: "<fr_FR:postcode()>"
+    numAndStreet: "<fr_FR:streetAddress()>"
     complement: ""
 
 # Voici une liste des ingredients de pizza de l'application PizzaShop
 App\Entity\Ingredient:
-  ingredient_1:
+  ingredient1:
     name: "Tomate"
-  ingredient_{2..20}:
+  ingredient{2..20}:
     name: "<fr_FR:word()>"
 
 # Voici une liste de pizza de l'application PizzaShop
 App\Entity\Pizza:
-  pizza_1:
-    name: La Margarita
+  pizza1:
+    name: "La Margarita"
     price: 10.23
-    ingredients: ["@ingredient_1", "@ingredient_5", "@ingredient_11"]
+    ingredients: ["@ingredient1", "@ingredient5", "@ingredient11"]
     # image: <randomElement(['https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'])>
-  pizza_{2..20}:
+  pizza{2..20}:
     name: "La <fr_FR:word()>"
     price: <randomFloat(2, 10, 19)>
-    ingredients: ["@ingredient_2", "@ingredient_7", "@ingredient_20"]
+    ingredients: ["@ingredient2", "@ingredient7", "@ingredient20"]
     # image: <randomElement(['https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'])>

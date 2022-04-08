@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\PizzaRepository;
+use Doctrine\Common\Collections\ArrayCollection;        // Ajout au moment de la mise en place collection des ingredients
+use Doctrine\Common\Collections\Collection;             // Ajout en cas de besoin à l'exemple du bouquin avec catégories
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Ignore;      // Ajout en cas de besoin à l'exemple du bouquin avec catégories
 
 #[ORM\Entity(repositoryClass: PizzaRepository::class)]
 class Pizza
@@ -21,6 +24,14 @@ class Pizza
 
     #[ORM\ManyToOne(targetEntity: Ingredient::class, inversedBy: 'pizzas')]
     private $ingredients;
+
+    // Ajout de la collection des ingredients
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+    // Ajout à l'exemple du bouquin avec catégories
+    //---------------------------
 
     public function getId(): ?int
     {
