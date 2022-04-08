@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pizza Shop
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<div class="row justify-content-between align-items-center mb-4">
+			<div class="col">
+				<h1>Liste des pizzas</h1>
+			</div>
+			<div class="col text-right">
+				<a href="{{ path("pizza_create") }}" class="btn btn-primary">Créer une nouvelle pizza</a>
+			</div>
+		</div>
+
+		<div class="row">
+			{% if not data|length %}
+				<h3 class="col text-center">Il n'y a pas encore de pizzas enregistré</h3>
+			{% endif %}
+			{% for unit in data %}
+				<div class="col col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<p class="text-center">
+								La pizza
+								<strong>{{ unit.pizza.name }}</strong>
+								est à
+								{{ unit.pizza.price }}€
+							</p>
+						</div>
+						<div class="card-footer">
+							<div class="row justify-content-center align-items-center mb-2">
+								<div class="col d-flex align-items-stretch">
+									<a href="{{ path('pizza_update', { id: unit.pizza.id }) }}" class="btn btn-primary col">
+										Modifier cette pizza
+									</a>
+								</div>
+							</div>
+							{{ 
+                            form(unit.deleteForm, {
+                                action: path('pizza_delete', { id: unit.pizza.id })
+                            })
+                        }}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endblock %}
