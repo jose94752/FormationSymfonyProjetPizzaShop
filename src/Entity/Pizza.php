@@ -22,6 +22,7 @@ class Pizza
     #[ORM\Column(type: 'float')]
     private $price;
 
+    #[Ignore()]
     #[ORM\ManyToOne(targetEntity: Ingredient::class, inversedBy: 'pizzas')]
     private $ingredients;
 
@@ -62,7 +63,7 @@ class Pizza
         return $this;
     }
 
-    public function getIngredients(): ?Ingredient
+    public function getIngredients(): ?Ingredient //<- Bug des choses à crééer
     {
         return $this->ingredients;
     }
@@ -70,6 +71,30 @@ class Pizza
     public function setIngredients(?Ingredient $ingredients): self
     {
         $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ingredient>
+     */
+    public function getIngredients(): Collection  //<- Bug des choses à crééer
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredient $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {  //<- Bug des choses à crééer
+            $this->ingredients[] = $ingredient;
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredient $ingredient): self
+    {
+        $this->ingredients->removeElement($ingredient);  //<- Bug des choses à crééer
 
         return $this;
     }
