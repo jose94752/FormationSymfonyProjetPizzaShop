@@ -56,10 +56,10 @@ App\Entity\Pizza:
   pizza_1:
     name: La Margarita
     price: 10.23
-    ingredients: <fr_FR:catchPhrase())>
+    ingredients: ["@ingredient_1", "@ingredient_5", "@ingredient_11"]
     # image: <randomElement(['https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'])>
   pizza_{2..20}:
     name: "La <fr_FR:word()>"
     price: <randomFloat(2, 10, 19)>
-    ingredients: <fr_FR:catchPhrase())>
+    ingredients: ["@ingredient_2", "@ingredient_7", "@ingredient_20"]
     # image: <randomElement(['https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'])>
