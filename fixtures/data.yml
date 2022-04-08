@@ -1,3 +1,65 @@
 # Vous pouvez pacer les fixtures de la base
 # de données dans ce fichier afin de créer
 # une base de données remplie avec vos données :)
+
+# Voici les fixtures concernant les adresses
+#App\Entity\Address:
+#  address_1:
+#   country: France
+#   city: Paris
+#   street: 13 rue lafayette
+#   zipCode: 75002
+# address_{2..50}:
+#   country: France
+#   city: <fr_FR:city()>
+#   street: <fr_FR:streetAddress()>
+#   zipCode: <fr_FR:postcode()>
+
+# Voici la liste des utilisateurs de l'application
+App\Entity\User:
+  user:
+    firstname: John
+    lastname: Doe
+    email: "user@pizza-shop.com"
+    roles: ["ROLE_USER"]
+    #address: "@address_1"
+    # password: user
+    password: \$2y\$13\$ahyDEIQ5rxD4APepoy59Ee4C6shhshhvBw7r/DE4/ipiGFbIhfAIm
+    phone: "01 01 01 99 99"
+    city: Paris
+    zipCode: 75002
+    numAndStreet: 13 rue lafayette
+    complement: ""
+  admin:
+    firstname: Admin
+    lastname: Admin
+    email: "admin@pizza-shop.com"
+    roles: ["ROLE_ADMIN"]
+    #address: "@address_*"
+    # password: admin
+    password: \$2y\$13\$AySyX3lvRrxJsvInORUideyy6QmFbyPxzp1vmBaOXVJP/e6d3TeOK
+    phone: <fr_FR:phoneNumber()>
+    city: <fr_FR:city()>
+    zipCode: <fr_FR:postcode()>
+    numAndStreet: <fr_FR:streetAddress()>
+    complement: ""
+
+# Voici une liste des ingredients de pizza de l'application PizzaShop
+App\Entity\Ingredient:
+  ingredient_1:
+    name: "Tomate"
+  ingredient_{2..20}:
+    name: "<fr_FR:word()>"
+
+# Voici une liste de pizza de l'application PizzaShop
+App\Entity\Pizza:
+  pizza_1:
+    name: La Margarita
+    price: 10.23
+    ingredients: <fr_FR:catchPhrase())>
+    # image: <randomElement(['https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'])>
+  pizza_{2..20}:
+    name: "La <fr_FR:word()>"
+    price: <randomFloat(2, 10, 19)>
+    ingredients: <fr_FR:catchPhrase())>
+    # image: <randomElement(['https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'])>
